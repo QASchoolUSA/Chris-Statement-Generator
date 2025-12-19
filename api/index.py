@@ -112,9 +112,10 @@ class PDFGenerator:
         
         for trip in data.get('trips', []):
             try:
-                amount = float(trip.get('amount', 0))
                 qty = float(trip.get('quantity', 0))
                 rate = float(trip.get('rate', 0))
+                # Auto-calculate amount
+                amount = qty * rate
             except:
                 amount = 0.0
                 qty = 0.0

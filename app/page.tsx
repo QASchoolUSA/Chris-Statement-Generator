@@ -110,6 +110,14 @@ export default function Home() {
     const newTrips = [...data.trips];
     // @ts-expect-error - dynamic assignment
     newTrips[index][field] = value;
+
+    // Auto-calculate amount if quantity or rate changes
+    if (field === 'quantity' || field === 'rate') {
+      const qty = parseFloat(newTrips[index].quantity.toString()) || 0;
+      const rate = parseFloat(newTrips[index].rate.toString()) || 0;
+      newTrips[index].amount = parseFloat((qty * rate).toFixed(2));
+    }
+
     setData(prev => ({ ...prev, trips: newTrips }));
   };
 
