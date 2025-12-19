@@ -201,7 +201,7 @@ export default function Home() {
       <div className="max-w-5xl mx-auto">
         <div className="bg-white shadow-xl rounded-lg overflow-hidden">
           <div className="bg-blue-600 px-6 py-4">
-            <h1 className="text-2xl font-bold text-white">Statement Generator</h1>
+            <h1 className="text-2xl font-bold text-white">Chris Statement Generator</h1>
           </div>
           
           <div className="p-6 space-y-8">
