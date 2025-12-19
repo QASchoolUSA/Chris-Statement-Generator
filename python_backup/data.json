@@ -1,0 +1,51 @@
+{
+    "recipient": {
+        "name": "FITRIGHT LOGISTICS LLC",
+        "address_line_1": "3374 FLAMBOROUGH DR",
+        "address_line_2": "Orlando, FL 32835"
+    },
+    "statement_info": {
+        "date": "12/12/2025",
+        "truck_number": "196"
+    },
+    "trips": [
+        {
+            "date": "12/01/25",
+            "trip_number": "1743657425.\n00",
+            "route": "Salem, MA-Murfreesboro, TN",
+            "description": "30% of $2,000.00",
+            "quantity": 2000.00,
+            "rate": 0.3000,
+            "amount": 600.00
+        },
+        {
+            "date": "12/03/25",
+            "trip_number": "1743657426.\n00",
+            "route": "Murfreesboro, TN-Knoxville, TN",
+            "description": "30% of $1,600.00",
+            "quantity": 1600.00,
+            "rate": 0.3000,
+            "amount": 480.00
+        },
+        {
+            "date": "12/04/25",
+            "trip_number": "1743657432.\n00",
+            "route": "Morristown, TN-Salem, OR",
+            "description": "30% of $5,200.00",
+            "quantity": 5200.00,
+            "rate": 0.3000,
+            "amount": 1560.00
+        }
+    ],
+    "deductions": [
+        {
+            "description": "OCCUPATIONAL ACCIDENTAL INSURANCE",
+            "date": "12/04/25",
+            "amount": -37.50
+        }
+    ],
+    "ytd": {
+        "net": 22801.41,
+        "gross": 28826.40
+    }
+}
