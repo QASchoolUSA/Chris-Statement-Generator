@@ -37,13 +37,23 @@ class PDFGenerator:
     def _header_footer(self, canvas, doc):
         canvas.saveState()
         
-        # Logo placeholder (Top Left) - Drawing a placeholder if file not found
-        # In serverless, loading local files like images can be tricky if not bundled.
-        # We will use a text placeholder or draw a shape.
-        canvas.setStrokeColor(colors.black)
-        # canvas.rect(30, self.height - 100, 2*inch, 0.8*inch)
-        canvas.setFont("Helvetica-Bold", 14)
-        canvas.drawString(40, self.height - 60, "SPF Transportation LLC")
+        # Logo (Top Left)
+        # Try to find logo.png in the same directory as the script
+        logo_path = os.path.join(os.path.dirname(__file__), 'logo.png')
+        
+        if os.path.exists(logo_path):
+            try:
+                # Draw logo - adjusting width/height to fit approx 2 inches wide
+                # preserveAspectRatio=True is important
+                canvas.drawImage(logo_path, 30, self.height - 110, width=2.5*inch, height=1*inch, preserveAspectRatio=True, mask='auto')
+            except Exception as e:
+                # Fallback if image fails to load
+                canvas.setFont("Helvetica-Bold", 14)
+                canvas.drawString(40, self.height - 60, "SPF Transportation LLC")
+        else:
+            # Fallback if file not found
+            canvas.setFont("Helvetica-Bold", 14)
+            canvas.drawString(40, self.height - 60, "SPF Transportation LLC")
         
         # Company Address
         canvas.setFont("Helvetica", 8)
