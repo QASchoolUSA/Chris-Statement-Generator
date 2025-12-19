@@ -237,7 +237,13 @@ class PDFGenerator:
         elements.append(t_summary)
         
         elements.append(Spacer(1, 30))
-        elements.append(Paragraph(f"{datetime.now().strftime('%m.%d')}-{datetime.now().strftime('%m.%d')}", normal_style))
+        
+        # Week Period (displayed at bottom)
+        week_period = data.get('statement_info', {}).get('week_period', '')
+        if not week_period:
+             week_period = f"{datetime.now().strftime('%m.%d')}-{datetime.now().strftime('%m.%d')}"
+             
+        elements.append(Paragraph(week_period, normal_style))
 
         doc.build(elements, onFirstPage=self._header_footer, onLaterPages=self._header_footer)
 

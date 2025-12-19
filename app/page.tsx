@@ -33,6 +33,7 @@ interface StatementData {
   statement_info: {
     date: string;
     truck_number: string;
+    week_period: string;
   };
   trips: Trip[];
   deductions: Deduction[];
@@ -47,7 +48,8 @@ const initialData: StatementData = {
   },
   statement_info: {
     date: new Date().toLocaleDateString('en-US'),
-    truck_number: "196"
+    truck_number: "196",
+    week_period: "12.01-12.07"
   },
   trips: [
     {
@@ -219,6 +221,10 @@ export default function Home() {
                 <div className="grid grid-cols-2 gap-4">
                   <input type="text" placeholder="Date" className="w-full p-2 border rounded" value={data.statement_info.date} onChange={e => handleInfoChange('date', e.target.value)} />
                   <input type="text" placeholder="Truck #" className="w-full p-2 border rounded" value={data.statement_info.truck_number} onChange={e => handleInfoChange('truck_number', e.target.value)} />
+                </div>
+                <div className="mt-4">
+                  <label className="text-xs text-gray-500 block mb-1">Week Period (displayed at bottom)</label>
+                  <input type="text" placeholder="e.g. 12.01-12.07" className="w-full p-2 border rounded" value={data.statement_info.week_period} onChange={e => handleInfoChange('week_period', e.target.value)} />
                 </div>
                 <h3 className="text-lg font-medium text-gray-900 border-b pb-2 pt-4">YTD Totals</h3>
                  <div className="grid grid-cols-2 gap-4">
